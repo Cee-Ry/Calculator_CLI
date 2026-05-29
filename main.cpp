@@ -150,9 +150,9 @@ void help() {
     std::cout << "   -h, --help        Display this help and exit the program\n";
 
     std::cout << "\nExamples:\n";
-    std::cout << "   calc add 3 2 5 10 ||\n";
-    std::cout << "   calc - 4 5 ||\n";
-    std::cout << "   calc 4 multiply 5 ||\n";
+    std::cout << "   calc add 3 2 5 10  \n";
+    std::cout << "   calc - 4 5          \n";
+    std::cout << "   calc 4 multiply 5\n";
     std::cout << "   calc 4 / 5 \n";
     std::cout << "   result: 20\n";
 }
