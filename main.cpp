@@ -20,10 +20,10 @@ int main(int argc, char *argv[]) {
             cal_operator = '+';
         } else if (str(argv[i]) == "-" || str(argv[i]) == "subtract") {
             cal_operator = '-';
-        } else if (str(argv[i]) == "*" || str(argv[i]) == "multiply") {
-            cal_operator = '*';
+        } else if (str(argv[i]) == "x" || str(argv[i]) == "multiply") {
+            cal_operator = 'x';
         } else if (str(argv[i]) == "/" || str(argv[i]) == "divide") {
-            cal_operator = '*';
+            cal_operator = '/';
         } else {
             nums.push_back(std::stoi(argv[i]));
         }
@@ -38,7 +38,7 @@ int main(int argc, char *argv[]) {
             std::cout << "Result: " << difference(nums);
             break;
 
-        case '*':
+        case 'x':
             std::cout << "Result: " << product(nums);
             break;
 
