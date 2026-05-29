@@ -3,7 +3,7 @@
 A lightweight command-line calculator built in C++. Instead of opening an app or typing into a prompt, you run calculations directly from your terminal as a command — just like `ls`, `grep`, or `echo`.
 
 ```bash
-calc 10 + 5 20
+calc + 10 5 20
 # Result: 35
 ```
 
@@ -38,7 +38,10 @@ cd Calculator_CLI
 cmake -B build
 cmake --build build
 
-# 3. Install the `calc` command to ~/.local/bin
+# 3. Make sure ~/.local/bin exist
+mkdir -p ~/.local/bin
+
+# 4. Install the `calc` command to ~/.local/bin
 cmake --install build
 ```
 
@@ -50,10 +53,12 @@ cmake --install build
 
 ---
 
-## Usage
+## Usages
 
 ```
-calc <number> [numbers...] <operator> [more numbers...]
+calc <operator> [numbers]
+calc <number> <operator> [more numbers...]
+calc <number> <operator> <number>
 ```
 
 The operator and numbers can be passed in **any order** — the program collects all integers and picks up the operator regardless of position.
