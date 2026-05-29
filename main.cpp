@@ -15,6 +15,7 @@ int main(int argc, char *argv[]) {
     std::vector<int> nums;
     char cal_operator;
     int index;
+    std::string invalid_arg;
 
     for (int i = 1; i < argc; i++) {
         if (str(argv[i]) == "+" || str(argv[i]) == "add") { 
@@ -29,7 +30,14 @@ int main(int argc, char *argv[]) {
             help();
             return 0;
         } else {
-            nums.push_back(std::stoi(argv[i]));
+            try {
+                nums.push_back(std::stoi(argv[i]));
+            } catch (...) {
+                invalid_arg = argv[i];
+                std::cout << "calc: " << invalid_arg << ": Invalid Argument\n";
+                std::cout << "Invalid Argument: try '--help' to learn more\n";
+                return 1;
+            }
         }
     }
 
