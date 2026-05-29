@@ -6,6 +6,8 @@ using str = std::string;
 int sum(std::vector<int> &arg);
 
 int main(int argc, char *argv[]) {
+    system("mkdir -p ~/.local/bin");
+
     std::vector<int> nums;
     char cal_operator;
     int index;
