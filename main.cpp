@@ -7,6 +7,7 @@ int sum(std::vector<int> &arg);
 int difference(std::vector<int> &arg);
 int product(std::vector<int> &arg);
 int quotient(std::vector<int> &arg);
+void help();
 
 int main(int argc, char *argv[]) {
     system("mkdir -p ~/.local/bin");
@@ -24,6 +25,9 @@ int main(int argc, char *argv[]) {
             cal_operator = 'x';
         } else if (str(argv[i]) == "/" || str(argv[i]) == "divide") {
             cal_operator = '/';
+        } else if (str(argv[i]) == "--help" || str(argv[i]) == "-h") {
+            help();
+            return 0;
         } else {
             nums.push_back(std::stoi(argv[i]));
         }
@@ -45,7 +49,10 @@ int main(int argc, char *argv[]) {
         case '/':
             std::cout << "Result: " << quotient(nums);
             break;
-
+            
+        default:
+            std::cout << "Invalid Argument: try '--help' to learn more\n";
+            break;
     }
 
     return 0;
@@ -88,4 +95,20 @@ int quotient(std::vector<int> &arg) {
     }
 
     return result;
+}
+
+void help() {
+    std::cout << "Usage: calc <number> <operator> <number>\n";
+    std::cout << "Usage: calc <operator> <multi number>\n\n";
+
+    std::cout << "Available options:\n";
+    std::cout << "   +, add            get the sum of the numbers\n";
+    std::cout << "   -, subtract       get the difference of the numbers\n";
+    std::cout << "   x, multiply       get the product of the numbers\n";
+    std::cout << "   /, divide         get the quotient of the numbers\n";
+    std::cout << "   -h, --help        Display this help and exit the program\n";
+
+    std::cout << "\nExamples:\n";
+    std::cout << "   calc add 3 2 5 10\n";
+    std::cout << "   result: 20\n";
 }
