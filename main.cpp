@@ -4,6 +4,9 @@
 using str = std::string;
 
 int sum(std::vector<int> &arg);
+int difference(std::vector<int> &arg);
+int product(std::vector<int> &arg);
+int quotient(std::vector<int> &arg);
 
 int main(int argc, char *argv[]) {
     system("mkdir -p ~/.local/bin");
@@ -31,6 +34,18 @@ int main(int argc, char *argv[]) {
             std::cout << "Result: " << sum(nums);
             break;
 
+        case '-':
+            std::cout << "Result: " << difference(nums);
+            break;
+
+        case '*':
+            std::cout << "Result: " << product(nums);
+            break;
+
+        case '/':
+            std::cout << "Result: " << quotient(nums);
+            break;
+
     }
 
     return 0;
@@ -43,4 +58,34 @@ int sum(std::vector<int> &arg) {
     }
 
     return adding;
+}
+
+int difference(std::vector<int> &arg) {
+    int result {};
+    result = arg[0];
+    for (int i {1}; i < arg.size(); i++) {
+        result -= arg[i];
+    }
+
+    return result;
+}
+
+int product(std::vector<int> &arg) {
+    int result {};
+    result = arg[0];
+    for (int i {1}; i < arg.size(); i++) {
+        result *= arg[i];
+    }
+
+    return result;
+}
+
+int quotient(std::vector<int> &arg) {
+    int result {};
+    result = arg[0];
+    for (int i {1}; i < arg.size(); i++) {
+        result /= arg[i];
+    }
+
+    return result;
 }
