@@ -62,6 +62,12 @@ int main(int argc, char *argv[]) {
             }
         }
     }
+    
+    if (nums.empty()) {
+        std::cout << "Invalid Argument: no numbers provided\n";
+        std::cout << "Invalid Argument: try '--help' to learn more\n";
+        return 1;  // or exit(1)
+    }
 
     switch (cal_operator) {
         case '+':
@@ -121,12 +127,12 @@ double quotient(std::vector<double> &arg) {
     double result {};
     result = arg[0];
     for (int i {1}; i < arg.size(); i++) {
-        result /= arg[i];
         if (arg[i] == 0) {
             std::cout << "Invalid Argument: division by zero\n";
             std::cout << "Invalid Argument: try '--help' to learn more\n";
             exit(1);
         }
+        result /= arg[i];
     }
 
     return result;
